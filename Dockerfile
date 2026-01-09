@@ -3,6 +3,7 @@ FROM ubuntu:22.04
 MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
 
 # install GNPS_MASST
+SHELL ["/bin/bash", "-c"]
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y build-essential git libarchive-dev vim wget && \
