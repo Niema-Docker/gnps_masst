@@ -8,8 +8,9 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y git wget && \
     wget -qO- "https://micro.mamba.pm/install.sh" | bash - && \
     source ~/.bashrc && \
-    micromamba create -n python3 python=3.10 -y && \
+    micromamba create -n gnps_masst python=3.10 -y && \
     git clone https://github.com/mwang87/GNPS_MASST.git && \
-    micromamba activate python3 && \
-    micromamba install -r /GNPS_MASST/requirements.txt
+    micromamba activate gnps_masst && \
+    micromamba install -r /GNPS_MASST/requirements.txt && \
+    echo 'micromamba activate gnps_masst' >> ~/.bashrc
 WORKDIR /GNPS_MASST
