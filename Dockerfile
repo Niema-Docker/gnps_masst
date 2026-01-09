@@ -4,7 +4,6 @@ MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
 
 # install GNPS_MASST
 RUN micromamba create -y -n gnps_masst python=3.10 unzip wget && \
-    #git clone https://github.com/mwang87/GNPS_MASST.git && \
     micromamba activate gnps_masst && \
     wget https://github.com/mwang87/GNPS_MASST/archive/refs/heads/master.zip && \
     unzip master.zip && \
