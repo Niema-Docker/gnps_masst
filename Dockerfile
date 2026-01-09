@@ -3,6 +3,7 @@ FROM mambaorg/micromamba:debian12-slim
 MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
 
 # install GNPS_MASST
+SHELL ["/bin/bash", "-c"]
 RUN micromamba create -y -n gnps_masst pip python=3.10 unzip wget && \
     micromamba activate gnps_masst && \
     wget "https://github.com/mwang87/GNPS_MASST/archive/refs/heads/master.zip" && \
