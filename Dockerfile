@@ -12,5 +12,6 @@ RUN apt-get update && \
     source ~/.bashrc && \
     mamba create -n python3 python=3.10 -y && \
     git clone https://github.com/mwang87/GNPS_MASST.git && \
-    /bin/bash -c 'source activate python3 && pip install -r ~/GNPS_MASST/requirements.txt'
-WORKDIR ~/GNPS_MASST
+    mv GNPS_MASST /GNPS_MASST && \
+    /bin/bash -c 'source activate python3 && pip install -r /GNPS_MASST/requirements.txt'
+WORKDIR /GNPS_MASST
