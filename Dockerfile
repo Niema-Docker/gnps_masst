@@ -7,7 +7,9 @@ ENV CONDA_DIR /opt/conda
 RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y build-essential libarchive-dev wget vim && \
-    wget -qO- "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" | bash -s -b -p "/opt/conda" && \
+    wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" && \
+    bash Miniforge3-Linux-x86_64.sh -b -p "/opt/conda" && \
+    rm Miniforge3-Linux-x86_64.sh && \
     echo "export PATH=$CONDA_DIR:$PATH" >> ~/.bashrc && \
     export PATH=$CONDA_DIR:$PATH && \
     mamba create -n python3 python=3.10 -y && \
