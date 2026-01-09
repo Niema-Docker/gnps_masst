@@ -13,6 +13,7 @@ RUN apt-get update && \
     echo "export PATH=$CONDA_DIR:$PATH" >> ~/.bashrc && \
     export PATH=$CONDA_DIR:$PATH && \
     micromamba create -n python3 python=3.10 -y && \
+    micromamba shell init --shell bash --root-prefix=$CONDA_DIR && \
     git clone https://github.com/mwang87/GNPS_MASST.git && \
-    /bin/bash -c 'eval "$(micromamba shell hook --shell bash)" && micromamba activate python3 && micromamba install -r /GNPS_MASST/requirements.txt'
+    /bin/bash -c 'micromamba activate python3 && micromamba install -r /GNPS_MASST/requirements.txt'
 WORKDIR /GNPS_MASST
