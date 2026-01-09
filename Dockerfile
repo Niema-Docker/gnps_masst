@@ -12,7 +12,7 @@ RUN apt-get update && \
     rm Miniforge3-Linux-x86_64.sh && \
     echo "export PATH=$CONDA_DIR:$PATH" >> ~/.bashrc && \
     echo 'eval "$(micromamba shell hook --shell bash)"' >> ~/.bashrc && \
-    export PATH=$CONDA_DIR:$PATH && \
+    source ~/.bashrc && \
     micromamba create -n python3 python=3.10 -y && \
     git clone https://github.com/mwang87/GNPS_MASST.git && \
     /bin/bash -c 'source ~/.bashrc && micromamba activate python3 && micromamba install -r /GNPS_MASST/requirements.txt'
