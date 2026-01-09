@@ -8,10 +8,9 @@ RUN apt-get update && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get upgrade -y && \
     DEBIAN_FRONTEND=noninteractive TZ=Etc/UTC apt-get install -y build-essential git libarchive-dev vim wget && \
     wget "https://github.com/conda-forge/miniforge/releases/latest/download/Miniforge3-Linux-x86_64.sh" && \
-    bash Miniforge3-Linux-x86_64.sh -b -p "/opt/conda" && \
+    bash Miniforge3-Linux-x86_64.sh -b -p "$MAMBA_ROOT_PREFIX" && \
     rm Miniforge3-Linux-x86_64.sh && \
     echo "export PATH=$MAMBA_ROOT_PREFIX:$PATH" >> ~/.bashrc && \
-    echo 'eval "$(micromamba shell hook --shell bash)"' >> ~/.bashrc && \
     export PATH=$MAMBA_ROOT_PREFIX:$PATH && \
     micromamba shell init --shell bash --root-prefix=$MAMBA_ROOT_PREFIX &&\
     micromamba create -n python3 python=3.10 -y && \
