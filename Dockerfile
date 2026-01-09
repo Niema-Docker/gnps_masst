@@ -12,8 +12,8 @@ RUN apt-get update && \
     rm Miniforge3-Linux-x86_64.sh && \
     echo "export PATH=$CONDA_DIR:$PATH" >> ~/.bashrc && \
     export PATH=$CONDA_DIR:$PATH && \
-    conda create -n python3 python=3.10 -y && \
+    micromamba create -n python3 python=3.10 -y && \
     git clone https://github.com/mwang87/GNPS_MASST.git && \
     mv GNPS_MASST /GNPS_MASST && \
-    /bin/bash -c 'conda activate python3 && conda install -r /GNPS_MASST/requirements.txt'
+    /bin/bash -c 'micromamba activate python3 && micromamba install -r /GNPS_MASST/requirements.txt'
 WORKDIR /GNPS_MASST
