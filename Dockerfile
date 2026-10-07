@@ -1,6 +1,5 @@
 # Minimal Docker image for GNPS_MASST using Micromamba base
-FROM mambaorg/micromamba:debian12-slim
-MAINTAINER Niema Moshiri <niemamoshiri@gmail.com>
+FROM mambaorg/micromamba:debian13-slim
 
 # install GNPS_MASST
 RUN micromamba create -y -n python3 less pip python=3.10 unzip vim wget && \
